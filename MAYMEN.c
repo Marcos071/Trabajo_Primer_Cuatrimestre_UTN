@@ -29,6 +29,17 @@ main()
 					printf("El numero secreto es menor y se encuentra entre %d y %d", inicio, NumeroIngresado-1);
 					limite=NumeroIngresado-1;
 				}
+				if(NumeroSecreto != NumeroIngresado)
+				{
+					Puntaje= Puntaje-1;
+				}
+			
+				if(NumeroSecreto == NumeroIngresado)
+				{
+					printf("\nAcertaste!");
+					printf("Puntaje obtenido : %d", Puntaje);
+					return 0;
+				}
 			}
 		}
 }
