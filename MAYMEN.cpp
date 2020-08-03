@@ -44,7 +44,7 @@ main()
 				if(NumeroSecreto == NumeroIngresado)
 				{
 					printf("\nAcertaste!");
-					printf("Puntaje obtenido : %d", Puntaje);
+					printf("\tPuntaje obtenido : %d", Puntaje);
 					return 0;
 				}
 			}
@@ -54,9 +54,12 @@ main()
 		
 		if(NumeroSecreto != NumeroIngresado)
 		{
-			printf("\n\nPerdiste");
+			printf("\n\nPerdiste!");
 			printf("\n\nEl numero secreto era: %d", NumeroSecreto);
 		}
+		
+		printf("\n\n");
+		system("pause");
 
 }
 
