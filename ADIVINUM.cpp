@@ -24,12 +24,13 @@ main(){
 	}while(d1 == d2 || d1 == d3 || d1 == d4 || d2 == d3 || d2 == d4 || d3 == d4 ||
 			d1 == 0 || d2 == 0 || d3 == 0 || d4 == 0); 
 		
-	printf("\nJugaremos con numeros de 4 cifras");
-	printf("\nIngrese un numero de 4 cifras (el numero secreto no lleva 0 ni digitos repetidos)");
+	printf("\t\t\t\tJugaremos con numeros de 4 cifras");
+	printf("\n\t\t\t\t---------------------------------");
+	printf("\n\nIngrese un numero de 4 cifras (tener en cuenta que el numero secreto no lleva 0 ni digitos repetidos)");
 	
 	for(int i=0; i<10; i++)
 	{
-		printf("\nIntento %d: ", i+1);
+		printf("\n\nIntento %d: ", i+1);
 		scanf("%d", &NumeroIngresado);
 		
 		if(NumeroIngresado > 1000 && NumeroIngresado < 9999)
@@ -54,14 +55,19 @@ main(){
 		
 		if (NumeroCorrecto == 1)
 		{
-			printf("\nFelicitaciones! Acertaste el numero. Puntaje obtenido = %d", Puntaje);
+			printf("\n\n\nFelicitaciones! Acertaste el numero!");
+			printf("El puntaje obtenido es = %d", Puntaje);
 			return 0;
 		}
 		
 		Puntaje-=1;
 	}
 	
-	printf("El numero secreto era %d, %d, %d, %d", d1, d2, d3, d4);
+	printf("\n\nPerdiste");
+	printf("\nEl numero secreto era %d, %d, %d, %d", d1, d2, d3, d4);
+	printf("\n\n");
+	system("pause");
+	
 }
 
 
@@ -79,15 +85,14 @@ void separar(int Numero, int &d1, int &d2, int &d3, int &d4){
 int verificar(int Numero, int n1, int n2, int n3, int n4, int d1, int d2, int d3, int d4, 
 			  int &PosCorrect, int &PosIncorrect, int &NumeroCorrecto)
 {	
-	
-	/*if(n1 == n2 || n1 == n3 || n1 == n4 || n2 == n3 || n2 == n4 || n3 == n4 ||
+
+	if(n1 == n2 || n1 == n3 || n1 == n4 || n2 == n3 || n2 == n4 || n3 == n4 ||
 			n1 == 0 || n2 == 0 || n3 == 0 || n4 == 0)
 	{
-		printf("\nEl numero ingresado no puede tener digitos repetidos y debe ser del 1 al 9");
-		printf("\npor favor vuelva a intentarlo");
+		printf("\nRecuerda que los digitos no deben repetirse. Vuelve a intentar!");
 		return 0;
-	}*/
-
+	}
+	
 	if(n1 == d1)
 		PosCorrect+= 1;
 	if(n2 == d2)
