@@ -26,5 +26,32 @@ main()
 	{
 		printf("\nInicia la partida la computadora");
 	}
-	
+	do{
+		
+		if(Comienza==1)
+		{
+			printf("\nIngresa la cantidad de monedas que deseas sacar:");
+			scanf("%d", &Usuario);
+			
+			if(Usuario >= CantMinima && Usuario<=CantMaxima)
+			{
+				NumeroAleatorio= NumeroAleatorio-Usuario;
+				printf("\nQuedan %d monedas", NumeroAleatorio);
+				auxiliar=2;
+			}
+			else 
+			{
+				printf("\nERROR: se deben sacar entre %d y %d monedas. Volver a intentar!!!!", CantMinima, CantMaxima);
+				auxiliar=1;
+			}
+			
+			if(NumeroAleatorio<CantMinima)
+			{
+				printf("\nEL USUARIO GANA!!");
+				printf("\nPuntaje obtenido: 5");
+			}
+		}
+					
+	}while(NumeroAleatorio>=CantMinima);
+
 }
