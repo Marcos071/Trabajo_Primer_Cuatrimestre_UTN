@@ -8,18 +8,19 @@ main()
 	int NumeroAleatorio, Comienza;
 	int Usuario, auxiliar, Computadora;
 	
-	printf("\nPor favor ingrese la cantidad minima de monedas que se pueden sacar: ");
+	printf("\t\t\t\t\tWarCoin - Guerra de Monedas");
+	printf("\n\t\t\t\t\n----------------------------");
+	
+	printf("\n\nPor favor ingrese la cantidad minima de monedas que se pueden sacar: ");
 	scanf("%d", &CantMinima);
 	printf("\nPor favor ingrese la cantidad maxima de monedas que se pueden sacar: ");
 	scanf("%d", &CantMaxima);
 	
-	system("\n\npause");
-	system("cls");
-	
 	srand(time(NULL));	
 	NumeroAleatorio= 10 + rand()%(50-10+1);
 	
-	printf("\nLa cantidad inicial de monedas en la pila es: %d", NumeroAleatorio); 
+	printf("\nLa cantidad inicial de monedas en la pila es: %d", NumeroAleatorio);
+	printf("\n---------------------------------------------------"); 
 	
 	Comienza= 1 + rand()%(2-1+1); 
 	
@@ -37,10 +38,10 @@ main()
 		
 		if(Comienza==1)
 		{
-			printf("\n\nIngresa la cantidad de monedas que deseas sacar:");
+			printf("\n\nIngresa la cantidad de monedas que deseas sacar: ");
 			scanf("%d", &Usuario);
 			
-			if(Usuario >= CantMinima && Usuario<=CantMaxima)
+			if(Usuario >= CantMinima && Usuario <=CantMaxima)
 			{
 				NumeroAleatorio= NumeroAleatorio-Usuario;
 				printf("\n\nQuedan %d monedas", NumeroAleatorio);
@@ -86,3 +87,7 @@ main()
 	system("pause");
 
 }
+
+
+
+
