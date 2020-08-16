@@ -5,9 +5,13 @@ void llenarGuiones(char b[], int cant);
 void visualizarPalabra(char b[], int cant);
 int jugar(char a[], char b[], int cant, char letra, int &intentos);
 
+
 main(){
 	int n, intentos = 0;
 	char x;
+	char munieco[50][50]={"cabeza","tronco","brazo izquierdo","brazo derecho","pierna izquierda","pierna derecha",
+	"mano izquierda", "mano derecha","pie izquierdo","pie derecho"};
+
 	
 	printf("ingrese cuantas letras tiene la palabra\n");
 	scanf("%d", &n);
@@ -19,25 +23,44 @@ main(){
 		_flushall();
 		printf("ingrese la letra %d: \n", i+1);
 		scanf("%c", &palabra[i]);
-		if (palabra[i] >= 'a' && palabra[i]<='z') palabra[i] = palabra[i] - 32;
+		if (palabra[i] >= 'a' && palabra[i]<='z') 
+		{
+			palabra[i] = palabra[i] - 32;
+		}
 	}
+	
 	llenarGuiones(guiones, n);	
+	
 	while (intentos < 10){
+			
 		system("cls");	
+		
 		visualizarPalabra(guiones, n);
 		_flushall();
+		
 		printf("\ningrese una letra para adivinar la palabra: (intento n: %d)\n", intentos+1);
 		scanf("%c", &x);
+		
 		if (x >= 'a' && x<='z') x = x - 32;
+		
 		if (x<'A' || x > 'Z'){
 		  printf("caracter no valido\n");
 		  system("pause");
 		} 
+		
 		else faltan = jugar(palabra, guiones, n, x, intentos);
 		if (faltan == 0){
 			printf("Usted a ganado!!!!");
 			break;
 		}
+		
+		printf("Estado del munieco: ");
+		for(int i=0;i<intentos;i++){
+			printf("%s |  ",munieco[i]);
+		}
+		
+		printf("\n\n");
+		system("pause");
 	}
 	
 	if (intentos == 10) printf("usted perdio: 0 puntos\n");
@@ -58,15 +81,18 @@ void visualizarPalabra(char b[], int cant){
 }
 
 int jugar(char a[], char b[], int cant, char letra, int &intentos){
+	
 	int restan = 0;
 	bool acerto = false;
 	for(int i=0; i< cant; i++){
 		if (a[i] == letra){
 			b[i] = letra;	
 			acerto = true;
-		} 
+		}
 		if (b[i] == '_') restan++;
 	}
 	if (!acerto) intentos++;
 	return restan;
+
 }
+
