@@ -5,14 +5,13 @@ void llenarGuiones(char b[], int cant);
 void visualizarPalabra(char b[], int cant);
 int jugar(char a[], char b[], int cant, char letra, int &intentos);
 
-
 main(){
-	int n, intentos = 0;
+	int n, intentos = 0, j=0;
 	char x;
 	char munieco[50][50]={"cabeza","tronco","brazo izquierdo","brazo derecho","pierna izquierda","pierna derecha",
 	"mano izquierda", "mano derecha","pie izquierdo","pie derecho"};
-
-	
+	char letrasInc[50];
+		
 	printf("ingrese cuantas letras tiene la palabra\n");
 	scanf("%d", &n);
 	int faltan = n;
@@ -41,7 +40,48 @@ main(){
 		printf("\ningrese una letra para adivinar la palabra: (intento n: %d)\n", intentos+1);
 		scanf("%c", &x);
 		
-		if (x >= 'a' && x<='z') x = x - 32;
+		if (x >= 'a' && x<='z' || x >= 'A' && x<='Z') 
+		{
+			bool correct = true; 
+			
+			if (x >= 'a' && x<='z')
+			x = x - 32;
+			
+			for(int i=0; i<n; i++)
+			{
+				if(palabra[i] == x)
+				{
+					correct = false;
+					break;
+				}	
+			}
+			
+			if(correct == true)
+			{
+				letrasInc[j] = x;
+				
+				printf("Letras incorrectas ya ingresadas: ");
+				for(int i=0; i<=j; i++)
+				{
+					printf("%c,", letrasInc[i]);
+				}
+				j++;
+			}
+			
+			else
+			{
+				printf("Letras incorrectas ya ingresadas: ");
+				
+				for(int i=0; i<j; i++)
+				{
+					printf("%c,", letrasInc[i]);
+				}
+				j-1;
+			}	
+		}
+
+		printf("\n\n");
+	
 		
 		if (x<'A' || x > 'Z'){
 		  printf("caracter no valido\n");
@@ -95,4 +135,10 @@ int jugar(char a[], char b[], int cant, char letra, int &intentos){
 	return restan;
 
 }
+
+
+
+
+
+
 
